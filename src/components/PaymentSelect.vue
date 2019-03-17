@@ -38,11 +38,12 @@
             <v-btn
               submit
               dark
-              color="blue darken-1"
+              color="green darken-1"
+              large
               @click="continueNext"
               class="px-5"
             >
-              Next
+              Nächster Schritt
             </v-btn>
           </v-flex>
         </v-layout>

@@ -1,28 +1,18 @@
 <template>
   <v-card
     id="e3"
-    class="blue darken-1 hide-overflow"
+    class="teal darken-4 hide-overflow"
   >
     <v-toolbar
-      color="blue darken-1"
+      color="teal darken-4"
       flat
       dark
     >
       <v-toolbar-title>
         <p class="text-xs-center headline font-weight-bold mb-0">
-          {{ title }}
+          Gutschein anfordern
         </p>
       </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>search</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>favorite</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>more_vert</v-icon>
-      </v-btn>
     </v-toolbar>
     <v-card>
       <v-container
@@ -36,10 +26,10 @@
               <v-stepper-header>
                 <v-stepper-step
                   :complete="e1 > 1"
-                  @click="title='Gift Card'"
+                  @click="title='Gutschein'"
                   step="1"
                   :editable="e1 > 1"
-                  color="blue darken-1"
+                  color="green darken-1"
                 ></v-stepper-step>
                 <v-divider></v-divider>
                 <v-stepper-step
@@ -47,7 +37,7 @@
                   @click="e1 > 2 ? title='Billing Data' : title=title"
                   step="2"
                   :editable="e1 > 2"
-                  color="blue darken-1"
+                  color="green darken-1"
                 ></v-stepper-step>
                 <v-divider></v-divider>
                 <v-stepper-step
@@ -55,7 +45,7 @@
                   @click="e1 > 3 ? title='Payment Method' : title=title"
                   step="3"
                   :editable="e1 > 3"
-                  color="blue darken-1"
+                  color="green darken-1"
                 ></v-stepper-step>
                 <v-divider></v-divider>
                 <v-stepper-step
@@ -63,13 +53,13 @@
                   @click="e1 > 4 ? title='Payment Method' : title=title"
                   step="4"
                   :editable="e1 > 4"
-                  color="blue darken-1"
+                  color="green darken-1"
                 ></v-stepper-step>
                 <v-divider></v-divider>
                 <v-stepper-step
                   step="5"
                   @click="e1 > 5 ? title='Payment Method' : title=title"
-                  color="blue darken-1"
+                  color="green darken-1"
                 ></v-stepper-step>
               </v-stepper-header>
               <v-stepper-items>

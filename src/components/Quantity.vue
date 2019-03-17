@@ -39,7 +39,7 @@
         item-text="text"
         item-value="val"
         :rules="[v => !!v || 'Quantity has to be selected']"
-        placeholder="Quantity"
+        placeholder="Anzahl der Gutscheine"
         required
       ></v-select>
       <v-text-field
@@ -49,25 +49,26 @@
         :counter="15"
         :rules="nameRules"
         class="receipient"
-        placeholder="Recipient Name"
+        placeholder="Empfänger Name"
       ></v-text-field>
       <v-textarea
         outline
         single-line
         v-model="message"
-        placeholder="Your personal Message..."
+        placeholder="Ihre persönliche Nachricht..."
       ></v-textarea>
       <v-hover>
         <v-btn
           submit
           dark
-          color="blue darken-1"
+          color="green darken-1"
+          large
           @click="continueNext"
           class="px-5 mx-auto"
           slot-scope="{ hover }"
           :class="`elevation-${hover ? 4 : 2}`"
         >
-          Next
+          Nächster Schritt
         </v-btn>
       </v-hover>
     </v-form>
@@ -88,11 +89,11 @@ export default {
     quantity: 0,
     amount: null,
     quantities: [
-      { val: 1, text: 'One' },
-      { val: 2, text: 'Two' },
-      { val: 3, text: 'Three' },
-      { val: 4, text: 'Four' },
-      { val: 5, text: 'Five' }
+      { val: 1, text: '1' },
+      { val: 2, text: '2' },
+      { val: 3, text: '3' },
+      { val: 4, text: '4' },
+      { val: 5, text: '5' }
     ],
     receipient: '',
     message: '',

@@ -4,7 +4,7 @@
       <v-layout wrap>
         <v-flex xs12>
           <v-btn flat outline :ripple="false" color="blue darken-1">
-            Gift Card &euro;{{ quantity.quantityAmount ? quantity.quantityAmount : '' }}
+            Gutschein &euro;{{ quantity.quantityAmount ? quantity.quantityAmount : '' }}
           </v-btn>
         </v-flex>
         <v-flex xs12>
@@ -16,7 +16,11 @@
           {{ paymentMethod }}
         </v-flex>
         <v-flex xs12>
-          <v-btn dark :ripple="false" color="blue darken-1">
+          <v-btn dark
+                 :ripple="false"
+                 color="green darken-1"
+                 large
+          >
             Pay &euro;{{ quantity.quantityAmount ? quantity.quantityAmount : '' }}
           </v-btn>
         </v-flex>

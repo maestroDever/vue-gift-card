@@ -14,7 +14,7 @@
               :counter="15"
               :rules="nameRules"
               class="firstName"
-              placeholder="First Name"
+              placeholder="Vorname"
             ></v-text-field>
           </v-flex>
           <v-flex xs12 md6 class="pa-1">
@@ -25,7 +25,7 @@
               :counter="15"
               :rules="nameRules"
               class="lastName"
-              placeholder="Last Name"
+              placeholder="Nachname"
             ></v-text-field>
           </v-flex>
           <v-flex xs12 md12 class="pa-1">
@@ -34,7 +34,7 @@
               single-line
               v-model="company"
               class="company"
-              placeholder="Company (Optional)"
+              placeholder="Firma (Optional)"
             ></v-text-field>
           </v-flex>
           <v-flex xs12 md12 class="pa-1">
@@ -44,7 +44,7 @@
               v-model="address"
               :rules="addressRules"
               class="address"
-              placeholder="Address"
+              placeholder="Adresse"
             ></v-text-field>
           </v-flex>
           <v-flex xs12 md12 class="pa-1">
@@ -65,7 +65,7 @@
               v-model="city"
               :rules="addressRules"
               class="city"
-              placeholder="City"
+              placeholder="Stadt"
             ></v-text-field>
           </v-flex>
           <v-flex xs12 md6 class="pa-1">
@@ -75,18 +75,19 @@
               v-model="zip"
               :rules="addressRules"
               class="zip"
-              placeholder="ZIP"
+              placeholder="PLZ"
             ></v-text-field>
           </v-flex>
           <v-flex xs12 md12 class="pa-1">
             <v-btn
               submit
               dark
-              color="blue darken-1"
+              color="green darken-1"
+              large
               @click="continueNext"
               class="px-5"
             >
-              Next
+              Bezahlart auswählen
             </v-btn>
           </v-flex>
         </v-layout>
