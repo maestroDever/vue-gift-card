@@ -1,0 +1,28 @@
+@import './_variables.scss';
+
+.stepperCard {
+  .v-input__slot {
+    textarea, input, label {
+      &::placeholder {
+        color: $placeHolderColor;
+      }
+    }
+    .v-select__selection {
+      color: $primaryColor;
+    }
+    .v-input__icon i {
+      color: $primaryColor;
+    }
+  }
+}
+
+.v-select-list .v-list__tile__title {
+  color: $primaryColor;
+}
+
+.v-expansion-panel__header {
+  padding: 0 !important;
+}
+.v-expansion-panel__container {
+  max-width: 95% !important;
+}
