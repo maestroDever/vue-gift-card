@@ -21,7 +21,7 @@
                   </template>
                   <template v-slot:header>
                     <v-radio
-                      color="blue darken-1"
+                      color="green darken-1"
                       :value="item.value"
                     >
                       <template v-slot:label><strong color="black">{{item.label}}</strong>&nbsp;(kostenios)</template>

@@ -1,140 +1,190 @@
 <template>
-  <v-card
-    id="e3"
-    class="teal darken-4 hide-overflow"
-  >
-    <v-toolbar
-      color="teal darken-4"
-      flat
-      dark
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      fixed
+      right
+      app
     >
-      <v-toolbar-title>
-        <p class="text-xs-center headline font-weight-bold mb-0">
-          Gutschein anfordern
-        </p>
-      </v-toolbar-title>
+      <v-list dense>
+        <v-list-tile>
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Home</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar color="cyan" dark fixed app>
+      <v-spacer></v-spacer>
+      <v-toolbar-title>Demo Application</v-toolbar-title>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
-    <v-card>
-      <v-container
-        fluid
-        class="pa-0"
-        grid-list-lg
-      >
-        <v-layout row wrap>
-          <v-flex xs12 class="pt-0">
-            <v-stepper v-model="e1" :light="true">
-              <v-stepper-header>
-                <v-stepper-step
-                  :complete="e1 > 1"
-                  @click="title='Gutschein'"
-                  step="1"
-                  :editable="e1 > 1"
-                  color="green darken-1"
-                ></v-stepper-step>
-                <v-divider></v-divider>
-                <v-stepper-step
-                  :complete="e1 > 2"
-                  @click="e1 > 2 ? title='Billing Data' : title=title"
-                  step="2"
-                  :editable="e1 > 2"
-                  color="green darken-1"
-                ></v-stepper-step>
-                <v-divider></v-divider>
-                <v-stepper-step
-                  :complete="e1 > 3"
-                  @click="e1 > 3 ? title='Payment Method' : title=title"
-                  step="3"
-                  :editable="e1 > 3"
-                  color="green darken-1"
-                ></v-stepper-step>
-                <v-divider></v-divider>
-                <v-stepper-step
-                  :complete="e1 > 4"
-                  @click="e1 > 4 ? title='Payment Method' : title=title"
-                  step="4"
-                  :editable="e1 > 4"
-                  color="green darken-1"
-                ></v-stepper-step>
-                <v-divider></v-divider>
-                <v-stepper-step
-                  step="5"
-                  @click="e1 > 5 ? title='Payment Method' : title=title"
-                  color="green darken-1"
-                ></v-stepper-step>
-              </v-stepper-header>
-              <v-stepper-items>
-                <v-stepper-content step="1">
-                  <Quantity @continue="continue1"/>
-                </v-stepper-content>
-                <v-stepper-content step="2">
-                  <BillingData @continue="continue2"/>
-                </v-stepper-content>
-                <v-stepper-content step="3" class="pa-0">
-                  <PaymentSelect @continue="continue3"/>
-                </v-stepper-content>
-                <v-stepper-content step="4" class="pa-0">
-                  <PaymentCheckout @continue="continue4"/>
-                </v-stepper-content>
-                <v-stepper-content step="5" class="pa-0">
-                  <PaymentConfirm @continue="continue5"/>
-                </v-stepper-content>
-              </v-stepper-items>
-            </v-stepper>
+    <v-content>
+      <v-container fluid fill-height>
+        <v-layout justify-center align-center>
+          <v-flex text-xs-center xs4 class="pa-5">
+            <v-hover>
+              <v-card
+                slot-scope="{ hover }"
+                class="mx-auto"
+                color="grey lighten-4"
+              >
+                <v-img
+                  :aspect-ratio="16/9"
+                  src="https://cdn.vuetifyjs.com/images/cards/kitchen.png"
+                >
+                  <v-expand-transition>
+                    <div
+                      v-if="hover"
+                      class="d-flex transition-fast-in-fast-out orange darken-2 headline v-card--reveal white--text"
+                      style="height: 100%;"
+                    >
+                      Click below button to book.
+                    </div>
+                  </v-expand-transition>
+                </v-img>
+                <v-card-text
+                  class="pt-4"
+                  style="position: relative;"
+                >
+                  <v-btn
+                    color="orange"
+                    class="white--text"
+                    large
+                    outline
+                    @click.stop="dialogGift=true"
+                  >
+                    tisch reservieren
+                  </v-btn>
+                </v-card-text>
+              </v-card>
+            </v-hover>
+          </v-flex>
+          <v-flex text-xs-center xs4 class="pa-5">
+            <v-hover>
+              <v-card
+                slot-scope="{ hover }"
+                class="mx-auto"
+                color="grey lighten-4"
+              >
+                <v-img
+                  :aspect-ratio="16/9"
+                  src="https://cdn.vuetifyjs.com/images/cards/kitchen.png"
+                >
+                  <v-expand-transition>
+                    <div
+                      v-if="hover"
+                      class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal headline white--text"
+                      style="height: 100%;"
+                    >
+                      Click below button to book.
+                    </div>
+                  </v-expand-transition>
+                </v-img>
+                <v-card-text
+                  class="pt-4"
+                  style="position: relative;"
+                >
+                  <v-btn
+                    color="orange"
+                    class="white--text"
+                    large
+                    outline
+                    @click.stop="dialogGift=true"
+                  >
+                    tisch reservieren
+                  </v-btn>
+                </v-card-text>
+              </v-card>
+            </v-hover>
+          </v-flex>
+          <v-flex text-xs-center xs4 class="pa-5">
+            <v-hover>
+              <v-card
+                slot-scope="{ hover }"
+                class="mx-auto"
+                color="grey lighten-4"
+              >
+                <v-img
+                  :aspect-ratio="16/9"
+                  src="https://cdn.vuetifyjs.com/images/cards/kitchen.png"
+                >
+                  <v-expand-transition>
+                    <div
+                      v-if="hover"
+                      class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal headline white--text"
+                      style="height: 100%;"
+                    >
+                      Click below button to book.
+                    </div>
+                  </v-expand-transition>
+                </v-img>
+                <v-card-text
+                  class="pt-4"
+                  style="position: relative;"
+                >
+                  <v-btn
+                    color="orange"
+                    class="white--text"
+                    large
+                    outline
+                    @click.stop="dialogGift=true"
+                  >
+                    tisch reservieren
+                  </v-btn>
+                </v-card-text>
+              </v-card>
+            </v-hover>
           </v-flex>
         </v-layout>
       </v-container>
-    </v-card>
-  </v-card>
+    </v-content>
+    <v-footer color="cyan" app>
+      <v-spacer></v-spacer>
+      <span class="white--text">&copy; 2019</span>
+    </v-footer>
+    <v-dialog
+      v-model="dialogGift"
+      style="max-height:100% !important; margin: 0;"
+      max-width="450"
+    >
+      <GiftCard />
+    </v-dialog>
+  </v-app>
 </template>
+
 <script>
-import Quantity from '@/components/Quantity.vue'
-import BillingData from '@/components/BillingData.vue'
-import PaymentSelect from '@/components/PaymentSelect.vue'
-import PaymentCheckout from '@/components/PaymentCheckout.vue'
-import PaymentConfirm from '@/components/PaymentConfirm.vue'
+import GiftCard from './GiftCard'
 
 export default {
-  data () {
-    return {
-      e1: 0,
-      title: 'Gift Card'
-    }
+  data: () => ({
+    drawer: false,
+    dialogGift: false
+  }),
+  props: {
+    source: String
   },
   components: {
-    Quantity,
-    BillingData,
-    PaymentSelect,
-    PaymentCheckout,
-    PaymentConfirm
-  },
-  methods: {
-    continue1 () {
-      this.e1 = 2
-      this.title = 'Billing Data'
-    },
-    continue2 () {
-      this.e1 = 3
-      this.title = 'Payment Method'
-    },
-    continue3 () {
-      this.e1 = 4
-      this.title = 'Payment Method'
-    },
-    continue4 () {
-      this.el = 5
-      this.title = 'Payment Method'
-    },
-    continue5 () {
-      this.title = 'Payment Method'
-    }
+    GiftCard
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/scss/base.scss';
 
-#e3 {
-  margin: 100px auto;
-  width: 450px;
+.v-card--reveal {
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  opacity: .5;
+  position: absolute;
+  width: 100%;
+}
+.v-dialog {
+  max-height: 100%;
+  margin: 0;
 }
 </style>
